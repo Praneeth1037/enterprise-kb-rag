@@ -1,0 +1,29 @@
+==============================================================================
+ENTERPRISE KNOWLEDGE BASE - BASELINE RAG
+==============================================================================
+corpus     : 11 documents -> 56 chunks (mean 272.4 chars)
+embedder   : TF-IDF 1-2 grams + TruncatedSVD -> 55-dim LSA vectors (offline, deterministic)  [55 dims]
+index build: 0.98s
+
+ROLE       : employee
+QUESTION   : How many days of paid time off do full-time employees get each year?
+
+RETRIEVED TOP-4
+------------------------------------------------------------------------------
+  [C1] +0.826  HR-001#0     HR           internal     Employee Handbook - Time Off and L
+  [C2] +0.470  HR-001#4     HR           internal     Employee Handbook - Time Off and L
+  [C3] +0.444  HR-001#1     HR           internal     Employee Handbook - Time Off and L
+  [C4] +0.283  HR-001#2     HR           internal     Employee Handbook - Time Off and L
+
+ANSWER  (provider=extractive, 10.2 ms)
+------------------------------------------------------------------------------
+Full-time employees accrue **20 days of PTO per calendar year**, credited monthly at 1.67 days per completed month of service. [C1] Employees receive **10 paid sick days per year**, separate from PTO. [C3] Jury duty is paid in full for the duration of service. [C2]
+
+CITATIONS
+------------------------------------------------------------------------------
+  HR-001#0     Employee Handbook - Time Off and Leave > 1. Paid Time Off (PTO)  (internal)
+  HR-001#4     Employee Handbook - Time Off and Leave > 5. Bereavement and Jury Duty  (internal)
+  HR-001#1     Employee Handbook - Time Off and Leave > 2. Sick Leave  (internal)
+
+full JSON written to outputs/test1.json
+==============================================================================

@@ -1,0 +1,78 @@
+{
+  "question": "A production database is down at 2am and the on-call DBA is not answering pages. What is the escalation path, and who has to approve emergency production database access?",
+  "role": "employee",
+  "answer": "If the DBA on call is unreachable after two pages, the incident commander escalates through the **Platform Engineering Manager**, who may authorise the emergency database access procedure. [C1] The DBA rotation does **not** auto-escalate. [C1] When an incident cannot be resolved without direct production database access, the break-glass procedure applies: 1. [C3]",
+  "abstained": false,
+  "provider": "extractive",
+  "top_k": 4,
+  "top_score": 0.6513,
+  "citations": [
+    {
+      "chunk_id": "IT-001#1",
+      "doc_id": "IT-001",
+      "title": "Production Incident Response Runbook",
+      "heading": "2. Paging and Escalation Chain",
+      "department": "IT",
+      "sensitivity": "internal",
+      "score": 0.6513
+    },
+    {
+      "chunk_id": "SEC-001#5",
+      "doc_id": "SEC-001",
+      "title": "Information Security Policy",
+      "heading": "6. Emergency Production Access (Break-Glass)",
+      "department": "Security",
+      "sensitivity": "internal",
+      "score": 0.6265
+    }
+  ],
+  "retrieved": [
+    {
+      "rank": 1,
+      "score": 0.6513,
+      "chunk_id": "IT-001#1",
+      "doc_id": "IT-001",
+      "title": "Production Incident Response Runbook",
+      "heading": "2. Paging and Escalation Chain",
+      "department": "IT",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 2,
+      "score": 0.6498,
+      "chunk_id": "IT-001#2",
+      "doc_id": "IT-001",
+      "title": "Production Incident Response Runbook",
+      "heading": "2. Paging and Escalation Chain",
+      "department": "IT",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 3,
+      "score": 0.6265,
+      "chunk_id": "SEC-001#5",
+      "doc_id": "SEC-001",
+      "title": "Information Security Policy",
+      "heading": "6. Emergency Production Access (Break-Glass)",
+      "department": "Security",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 4,
+      "score": 0.5449,
+      "chunk_id": "SEC-001#6",
+      "doc_id": "SEC-001",
+      "title": "Information Security Policy",
+      "heading": "6. Emergency Production Access (Break-Glass)",
+      "department": "Security",
+      "sensitivity": "internal"
+    }
+  ],
+  "retrieved_above_clearance": [],
+  "latency_ms": 2.1,
+  "timings_ms": {
+    "retrieve": 1.2,
+    "generate": 1.0
+  },
+  "error": null
+}

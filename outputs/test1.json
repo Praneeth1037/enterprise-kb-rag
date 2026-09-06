@@ -1,0 +1,87 @@
+{
+  "question": "How many days of paid time off do full-time employees get each year?",
+  "role": "employee",
+  "answer": "Full-time employees accrue **20 days of PTO per calendar year**, credited monthly at 1.67 days per completed month of service. [C1] Employees receive **10 paid sick days per year**, separate from PTO. [C3] Jury duty is paid in full for the duration of service. [C2]",
+  "abstained": false,
+  "provider": "extractive",
+  "top_k": 4,
+  "top_score": 0.8262,
+  "citations": [
+    {
+      "chunk_id": "HR-001#0",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "1. Paid Time Off (PTO)",
+      "department": "HR",
+      "sensitivity": "internal",
+      "score": 0.8262
+    },
+    {
+      "chunk_id": "HR-001#4",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "5. Bereavement and Jury Duty",
+      "department": "HR",
+      "sensitivity": "internal",
+      "score": 0.47
+    },
+    {
+      "chunk_id": "HR-001#1",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "2. Sick Leave",
+      "department": "HR",
+      "sensitivity": "internal",
+      "score": 0.4437
+    }
+  ],
+  "retrieved": [
+    {
+      "rank": 1,
+      "score": 0.8262,
+      "chunk_id": "HR-001#0",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "1. Paid Time Off (PTO)",
+      "department": "HR",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 2,
+      "score": 0.47,
+      "chunk_id": "HR-001#4",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "5. Bereavement and Jury Duty",
+      "department": "HR",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 3,
+      "score": 0.4437,
+      "chunk_id": "HR-001#1",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "2. Sick Leave",
+      "department": "HR",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 4,
+      "score": 0.2831,
+      "chunk_id": "HR-001#2",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "3. Parental Leave",
+      "department": "HR",
+      "sensitivity": "internal"
+    }
+  ],
+  "retrieved_above_clearance": [],
+  "latency_ms": 10.2,
+  "timings_ms": {
+    "retrieve": 9.3,
+    "generate": 0.9
+  },
+  "error": null
+}

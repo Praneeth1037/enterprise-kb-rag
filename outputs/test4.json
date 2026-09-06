@@ -1,0 +1,78 @@
+{
+  "question": "Which health insurance carrier does the company use for US employees?",
+  "role": "employee",
+  "answer": "Employees receive **10 paid sick days per year**, separate from PTO. [C2] Contractors are not eligible for PTO, paid parental leave, sick leave, or the company bonus plan. [C1]",
+  "abstained": false,
+  "provider": "extractive",
+  "top_k": 4,
+  "top_score": 0.687,
+  "citations": [
+    {
+      "chunk_id": "HR-003#3",
+      "doc_id": "HR-003",
+      "title": "Contractor and Contingent Worker Policy",
+      "heading": "4. Benefits",
+      "department": "HR",
+      "sensitivity": "internal",
+      "score": 0.687
+    },
+    {
+      "chunk_id": "HR-001#1",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "2. Sick Leave",
+      "department": "HR",
+      "sensitivity": "internal",
+      "score": 0.4704
+    }
+  ],
+  "retrieved": [
+    {
+      "rank": 1,
+      "score": 0.687,
+      "chunk_id": "HR-003#3",
+      "doc_id": "HR-003",
+      "title": "Contractor and Contingent Worker Policy",
+      "heading": "4. Benefits",
+      "department": "HR",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 2,
+      "score": 0.4704,
+      "chunk_id": "HR-001#1",
+      "doc_id": "HR-001",
+      "title": "Employee Handbook - Time Off and Leave",
+      "heading": "2. Sick Leave",
+      "department": "HR",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 3,
+      "score": 0.2965,
+      "chunk_id": "ENG-001#0",
+      "doc_id": "ENG-001",
+      "title": "Engineering Onboarding Guide",
+      "heading": "1. Local Environment",
+      "department": "Engineering",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 4,
+      "score": 0.2912,
+      "chunk_id": "IT-001#1",
+      "doc_id": "IT-001",
+      "title": "Production Incident Response Runbook",
+      "heading": "2. Paging and Escalation Chain",
+      "department": "IT",
+      "sensitivity": "internal"
+    }
+  ],
+  "retrieved_above_clearance": [],
+  "latency_ms": 2.0,
+  "timings_ms": {
+    "retrieve": 1.1,
+    "generate": 0.9
+  },
+  "error": null
+}

@@ -1,0 +1,89 @@
+{
+  "question": "What is the salary band for a Senior Software Engineer in Phoenix?",
+  "role": "contractor",
+  "answer": "| Level | Title | Band minimum | Band midpoint | Band maximum | Target bonus | | ------- | ------- | -------------- | --------------- | -------------- | -------------- | | L3 | Software Engineer I | 108,000 | 122,000 | 136,000 | 8% | | L4 | Software Engineer II | 128,000 | 147,000 | 166,000 | 10% | | L5 | Senior Software Engineer | 158,000 | 177,000 | 196,000 | 15% | | L6 | Staff Software Engineer | 191,000 | 216,000 | 241,000 | 20% | [C1] Berlin bands are set at **0.82x** the Phoenix band. [C2] Employees may self-install software from the Okta app catalogue. [C4]",
+  "abstained": false,
+  "provider": "extractive",
+  "top_k": 4,
+  "top_score": 0.8708,
+  "citations": [
+    {
+      "chunk_id": "HR-002#1",
+      "doc_id": "HR-002",
+      "title": "Compensation Bands FY26 (CONFIDENTIAL)",
+      "heading": "Engineering Ladder - Phoenix, AZ (USD, annual base)",
+      "department": "HR",
+      "sensitivity": "confidential",
+      "score": 0.8708
+    },
+    {
+      "chunk_id": "HR-002#2",
+      "doc_id": "HR-002",
+      "title": "Compensation Bands FY26 (CONFIDENTIAL)",
+      "heading": "Geographic Differentials",
+      "department": "HR",
+      "sensitivity": "confidential",
+      "score": 0.3206
+    },
+    {
+      "chunk_id": "IT-002#4",
+      "doc_id": "IT-002",
+      "title": "IT Onboarding, Accounts and Equipment",
+      "heading": "5. Software Installation",
+      "department": "IT",
+      "sensitivity": "internal",
+      "score": 0.2379
+    }
+  ],
+  "retrieved": [
+    {
+      "rank": 1,
+      "score": 0.8708,
+      "chunk_id": "HR-002#1",
+      "doc_id": "HR-002",
+      "title": "Compensation Bands FY26 (CONFIDENTIAL)",
+      "heading": "Engineering Ladder - Phoenix, AZ (USD, annual base)",
+      "department": "HR",
+      "sensitivity": "confidential"
+    },
+    {
+      "rank": 2,
+      "score": 0.3206,
+      "chunk_id": "HR-002#2",
+      "doc_id": "HR-002",
+      "title": "Compensation Bands FY26 (CONFIDENTIAL)",
+      "heading": "Geographic Differentials",
+      "department": "HR",
+      "sensitivity": "confidential"
+    },
+    {
+      "rank": 3,
+      "score": 0.2419,
+      "chunk_id": "IT-001#3",
+      "doc_id": "IT-001",
+      "title": "Production Incident Response Runbook",
+      "heading": "3. Incident Roles",
+      "department": "IT",
+      "sensitivity": "internal"
+    },
+    {
+      "rank": 4,
+      "score": 0.2379,
+      "chunk_id": "IT-002#4",
+      "doc_id": "IT-002",
+      "title": "IT Onboarding, Accounts and Equipment",
+      "heading": "5. Software Installation",
+      "department": "IT",
+      "sensitivity": "internal"
+    }
+  ],
+  "retrieved_above_clearance": [
+    "HR-002"
+  ],
+  "latency_ms": 1.9,
+  "timings_ms": {
+    "retrieve": 1.1,
+    "generate": 0.7
+  },
+  "error": null
+}

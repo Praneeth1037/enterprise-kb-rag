@@ -1,0 +1,5 @@
+# Baseline dependencies. Nothing here needs a GPU, an API key, or network
+# access at run time.
+numpy>=1.24
+PyYAML>=6.0
+scikit-learn>=1.3

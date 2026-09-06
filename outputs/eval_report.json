@@ -1,0 +1,969 @@
+{
+  "summary": {
+    "questions": 32,
+    "answerable": 24,
+    "should_abstain": 8,
+    "retrieval_hit_at_k": 1.0,
+    "retrieval_recall": 1.0,
+    "key_fact_coverage": 0.681,
+    "answer_correct": 0.5,
+    "abstain_correct": 0.0,
+    "false_abstain": 1,
+    "acl_leaks": 7,
+    "overall_pass_rate": 0.375,
+    "latency_p50_ms": 0.4,
+    "latency_p95_ms": 0.5,
+    "wall_seconds": 0.0,
+    "config": {
+      "embedder": "tfidf",
+      "dims": 55,
+      "top_k": 4,
+      "abstain_threshold": 0.25,
+      "provider": "mixed",
+      "documents": 11,
+      "chunks": 56
+    }
+  },
+  "results": [
+    {
+      "qid": "Q01",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How many days of paid time off do full-time employees get each year?",
+      "gold_doc_ids": [
+        "HR-001"
+      ],
+      "retrieved_doc_ids": [
+        "HR-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "20"
+      ],
+      "facts_found": [
+        "20"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.9,
+      "answer": "Full-time employees accrue **20 days of PTO per calendar year**, credited monthly at 1.67 days per completed month of service. [C1] Employees receive **10 paid sick days per year**, separate from PTO. [C3] Jury duty is paid in full for the duration of service. [C2]"
+    },
+    {
+      "qid": "Q02",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How much paid parental leave does a primary caregiver get, and how much notice do I have to give?",
+      "gold_doc_ids": [
+        "HR-001"
+      ],
+      "retrieved_doc_ids": [
+        "HR-001",
+        "HR-003"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "16 weeks",
+        "30 days"
+      ],
+      "facts_found": [
+        "16 weeks"
+      ],
+      "key_fact_coverage": 0.5,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['30 days']",
+      "latency_ms": 0.5,
+      "answer": "Contractors and interns are not eligible for paid parental leave. [C1] Northwind Robotics provides: - **16 weeks of fully paid leave for the primary caregiver** - **6 weeks of fully paid leave for the secondary caregiver** Both apply to birth, adoption, and legal guardianship, and must be taken within **12 months** of the child joining the family. [C1] Bereavement leave is **5 paid days** for an immediate family member and **2 paid days** otherwise. [C4]"
+    },
+    {
+      "qid": "Q03",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How long is the probation period and what notice applies during it?",
+      "gold_doc_ids": [
+        "HR-001"
+      ],
+      "retrieved_doc_ids": [
+        "HR-001",
+        "IT-001",
+        "IT-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "90",
+        "2 weeks"
+      ],
+      "facts_found": [
+        "2 weeks"
+      ],
+      "key_fact_coverage": 0.5,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['90']",
+      "latency_ms": 0.5,
+      "answer": "During probation, either party may terminate the employment relationship with **2 weeks written notice**. [C1] After probation, the standard notice period is **4 weeks** for individual contributors and **8 weeks** for Director level and above. [C1] PTO may be taken during the probation period only with written manager approval. [C2]"
+    },
+    {
+      "qid": "Q04",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "What qualifies an incident as Sev1?",
+      "gold_doc_ids": [
+        "IT-001"
+      ],
+      "retrieved_doc_ids": [
+        "IT-001",
+        "SEC-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "5%",
+        "data loss"
+      ],
+      "facts_found": [],
+      "key_fact_coverage": 0.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['5%', 'data loss']",
+      "latency_ms": 0.4,
+      "answer": "Every Sev1 declares an **Incident Commander (IC)**, a **Communications Lead**, and an **Operations Lead**. [C1] Every Sev1 and Sev2 requires a blameless postmortem published within **5 business days** of resolution. [C4] The Incident Commander files a break-glass request in the vault, naming the incident ID and the specific database. [C3]"
+    },
+    {
+      "qid": "Q05",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How long before an unacknowledged page escalates from the primary to the secondary on-call engineer?",
+      "gold_doc_ids": [
+        "IT-001"
+      ],
+      "retrieved_doc_ids": [
+        "HR-001",
+        "IT-001",
+        "IT-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "15 minutes"
+      ],
+      "facts_found": [
+        "15 minutes"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.5,
+      "answer": "If the primary does not acknowledge within **15 minutes**, the page auto-escalates to the **secondary on-call engineer**. [C1] Alerts page the **primary on-call engineer** through PagerDuty. [C1] Page them via the `#dba-oncall` Slack channel or the `dba-primary` PagerDuty schedule. [C1]"
+    },
+    {
+      "qid": "Q06",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How long is a break-glass production database credential valid for?",
+      "gold_doc_ids": [
+        "SEC-001"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-002",
+        "IT-001",
+        "SEC-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "4 hours"
+      ],
+      "facts_found": [
+        "4 hours"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.4,
+      "answer": "When an incident cannot be resolved without direct production database access, the break-glass procedure applies: 1. [C1] On approval, the vault issues a **time-boxed credential valid for 4 hours**. [C1] two pages, the incident commander escalates through the **Platform Engineering Manager**, who may authorise the emergency database access procedure. > The emergency (\"break-glass\") production access procedure itself is owned by > Security and is defined in **SEC-001 Section 6**. [C3]"
+    },
+    {
+      "qid": "Q07",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How long do we retain security audit logs?",
+      "gold_doc_ids": [
+        "SEC-002"
+      ],
+      "retrieved_doc_ids": [
+        "SEC-001",
+        "SEC-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "400 days"
+      ],
+      "facts_found": [
+        "400 days"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.4,
+      "answer": "The entire session is **recorded and streamed to the security audit log**. [C3] | Data type | Retention period | System of record | | ----------- | ------------------ | ------------------ | | Application logs | 90 days | Datadog | | Security audit logs | 400 days | Splunk | | Customer support tickets | 3 years | Zendesk | | Employee records | 7 years after termination | Workday | | Robot telemetry (customer sites) | 13 months | Timescale | | Recruiting candidate data | 12 months after decision | Greenhouse | [C1] The Security Duty Officer is reachable 24/7 via the `security-duty` PagerDuty schedule. [C2]"
+    },
+    {
+      "qid": "Q08",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How many approvals does a pull request under the platform directory need?",
+      "gold_doc_ids": [
+        "ENG-001"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-001",
+        "IT-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "2"
+      ],
+      "facts_found": [
+        "2"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.4,
+      "answer": "Every change lands through a pull request. **Changes under `platform/` require 2 approvals; all other paths require 1 approval.** CI must be green before merge; there is no override path for a red build. [C1] Action items are tracked in Jira under the `INC` project. [C4] Pull requests older than **10 days** without activity are closed automatically. [C1]"
+    },
+    {
+      "qid": "Q09",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "What is the daily meal per diem for a trip to Berlin?",
+      "gold_doc_ids": [
+        "FIN-001"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-002",
+        "FIN-001",
+        "IT-001",
+        "IT-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "60"
+      ],
+      "facts_found": [
+        "60"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.4,
+      "answer": "| Location | Daily meal allowance | | ---------- | ---------------------- | | Phoenix and US domestic | USD 70 | | Berlin and EU | EUR 60 | | Bangalore and India | INR 2,500 | Per diems do not require itemised receipts. [C1] Actual-cost claims above the per diem require receipts and a written justification. [C1] The Berlin office receives hardware shipments on **Tuesdays and Thursdays** only. [C2]"
+    },
+    {
+      "qid": "Q10",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "When is the end-of-year deployment freeze window?",
+      "gold_doc_ids": [
+        "ENG-002"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-002",
+        "HR-001",
+        "IT-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "December 18",
+        "January 2"
+      ],
+      "facts_found": [],
+      "key_fact_coverage": 0.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['December 18', 'January 2']",
+      "latency_ms": 0.4,
+      "answer": "Any deployment can be rolled back with `nwctl release rollback --service <name>`. [C2] Feature work is never granted a freeze exception. [C1] A maximum of **5 unused PTO days may be carried into the next calendar year**. [C3]"
+    },
+    {
+      "qid": "Q11",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "What approvals are required to buy a software tool costing more than 10,000 dollars a year?",
+      "gold_doc_ids": [
+        "FIN-002"
+      ],
+      "retrieved_doc_ids": [
+        "FIN-002",
+        "HR-001",
+        "HR-002",
+        "SEC-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "Security review",
+        "CFO"
+      ],
+      "facts_found": [
+        "Security review",
+        "CFO"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [
+        "HR-002"
+      ],
+      "passed": true,
+      "verdict": "PASS (acl leak)",
+      "latency_ms": 0.4,
+      "answer": "A doctor's note is required for any absence of **more than 3 consecutive working days**. [C3] | Annual contract value (USD) | Required approvals | | ------------------------------ | -------------------- | | Under 2,500 | Line manager | | 2,500 to 10,000 | Department Director | | Over 10,000 | **Security review and CFO sign-off** | | Over 100,000 | CFO and CEO | [C1] Devices out of compliance for more than **14 days** are blocked from SSO. [C2]"
+    },
+    {
+      "qid": "Q12",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "What is the deadline for submitting an expense claim?",
+      "gold_doc_ids": [
+        "FIN-001"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-002",
+        "FIN-001",
+        "HR-001",
+        "IT-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "45 days"
+      ],
+      "facts_found": [],
+      "key_fact_coverage": 0.0,
+      "should_abstain": false,
+      "abstained": true,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL false abstain",
+      "latency_ms": 0.3,
+      "answer": "I could not find this in the knowledge base."
+    },
+    {
+      "qid": "Q13",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "Can I use an SMS code as my second factor for multi-factor authentication?",
+      "gold_doc_ids": [
+        "SEC-001"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-001",
+        "HR-001",
+        "IT-001",
+        "SEC-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "not"
+      ],
+      "facts_found": [
+        "not"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.3,
+      "answer": "Multi-factor authentication is mandatory on all systems. [C1] SMS one-time codes are **not** an accepted second factor. [C1]"
+    },
+    {
+      "qid": "Q14",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How many sick days do I get and when do I need a doctor's note?",
+      "gold_doc_ids": [
+        "HR-001"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-001",
+        "FIN-001",
+        "HR-001",
+        "HR-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "10",
+        "3 consecutive"
+      ],
+      "facts_found": [
+        "10",
+        "3 consecutive"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [
+        "HR-002"
+      ],
+      "passed": true,
+      "verdict": "PASS (acl leak)",
+      "latency_ms": 0.4,
+      "answer": "A doctor's note is required for any absence of **more than 3 consecutive working days**. [C1] Employees receive **10 paid sick days per year**, separate from PTO. [C1] Get added to your team's PagerDuty schedule (shadow-only for the first 30 days) 3. [C4]"
+    },
+    {
+      "qid": "Q15",
+      "type": "single_hop",
+      "role": "employee",
+      "question": "How many PTO days can I carry over and when do they expire?",
+      "gold_doc_ids": [
+        "HR-001"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-002",
+        "FIN-002",
+        "HR-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "5",
+        "March 31"
+      ],
+      "facts_found": [
+        "March 31"
+      ],
+      "key_fact_coverage": 0.5,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['5']",
+      "latency_ms": 0.4,
+      "answer": "Sick leave does not accrue and does not carry over. [C1] Carried-over days expire on **March 31** and are not paid out, except where local law requires otherwise (Germany and India offices follow statutory minimums). [C2] Employees receive **10 paid sick days per year**, separate from PTO. [C1]"
+    },
+    {
+      "qid": "Q16",
+      "type": "multi_hop",
+      "role": "employee",
+      "question": "A production database is down at 2am and the on-call DBA is not answering pages. What is the escalation path, and who has to approve emergency production database access?",
+      "gold_doc_ids": [
+        "IT-001",
+        "SEC-001"
+      ],
+      "retrieved_doc_ids": [
+        "IT-001",
+        "SEC-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "Platform Engineering Manager",
+        "Security Duty Officer",
+        "Engineering Manager"
+      ],
+      "facts_found": [
+        "Platform Engineering Manager",
+        "Engineering Manager"
+      ],
+      "key_fact_coverage": 0.6666666666666666,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['Security Duty Officer']",
+      "latency_ms": 0.5,
+      "answer": "If the DBA on call is unreachable after two pages, the incident commander escalates through the **Platform Engineering Manager**, who may authorise the emergency database access procedure. [C1] The DBA rotation does **not** auto-escalate. [C1] When an incident cannot be resolved without direct production database access, the break-glass procedure applies: 1. [C3]"
+    },
+    {
+      "qid": "Q17",
+      "type": "multi_hop",
+      "role": "contractor",
+      "question": "I am a contractor joining the ML team in Berlin. What laptop tier can I get, who approves it, and where will it be delivered?",
+      "gold_doc_ids": [
+        "HR-003",
+        "IT-002"
+      ],
+      "retrieved_doc_ids": [
+        "HR-001",
+        "HR-003",
+        "IT-001",
+        "IT-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "Standard",
+        "office"
+      ],
+      "facts_found": [
+        "Standard"
+      ],
+      "key_fact_coverage": 0.5,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['office']",
+      "latency_ms": 0.5,
+      "answer": "| Tier | Specification | Eligibility | Approver | | ------ | --------------- | ------------- | ---------- | | Standard | 14\" laptop, M-series, 16 GB RAM, 512 GB SSD | All employees and contractors | Automatic | | Plus | 16\" laptop, M-series Pro, 32 GB RAM, 1 TB SSD | ML, simulation, and CAD roles only | **Director approval required** | | Workstation | Desktop, 64 GB RAM, discrete GPU | Robotics perception team, on request | Director + IT approval | Plus tier requests are filed as `IT-HW-UPGRADE` tickets and must name the approving Director. [C1] Upgrades to Plus tier are not available to contingent workers. [C2] Contractors receive **Standard tier hardware only** (see IT-002). [C2]"
+    },
+    {
+      "qid": "Q18",
+      "type": "multi_hop",
+      "role": "employee",
+      "question": "We have a Sev1 caused by a bad robot firmware release. Can we meet the 30 minute rollback requirement?",
+      "gold_doc_ids": [
+        "ENG-002"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-002",
+        "HR-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "24 hours",
+        "forward-fix"
+      ],
+      "facts_found": [
+        "24 hours"
+      ],
+      "key_fact_coverage": 0.5,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['forward-fix']",
+      "latency_ms": 0.4,
+      "answer": "Robot firmware follows a **fortnightly release train** that cuts on alternate Tuesdays at 10:00 Phoenix time. [C3] Robot firmware rollbacks are **staged over 24 hours** and cannot be completed in 30 minutes. [C1] Any deployment can be rolled back with `nwctl release rollback --service <name>`. [C2]"
+    },
+    {
+      "qid": "Q19",
+      "type": "multi_hop",
+      "role": "manager",
+      "question": "A new analytics vendor will process EU customer personal data and costs 18,000 dollars a year. What do I need in place before signing?",
+      "gold_doc_ids": [
+        "FIN-002",
+        "SEC-002"
+      ],
+      "retrieved_doc_ids": [
+        "FIN-002",
+        "SEC-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "Security review",
+        "CFO",
+        "DPA"
+      ],
+      "facts_found": [
+        "Security review",
+        "DPA"
+      ],
+      "key_fact_coverage": 0.6666666666666666,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['CFO']",
+      "latency_ms": 0.3,
+      "answer": "Any new vendor processing EU personal data requires a signed DPA before data is transferred. [C1] Any vendor that will process Northwind data, host a service, or receive an API integration requires a Security review before contract signature, regardless of value. [C3] EU personal data is processed under the standard contractual clauses. [C1]"
+    },
+    {
+      "qid": "Q20",
+      "type": "multi_hop",
+      "role": "employee",
+      "question": "I am still on probation and want three days off next month. Is that allowed and who approves it?",
+      "gold_doc_ids": [
+        "HR-001"
+      ],
+      "retrieved_doc_ids": [
+        "FIN-001",
+        "HR-001",
+        "IT-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "written manager approval"
+      ],
+      "facts_found": [],
+      "key_fact_coverage": 0.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['written manager approval']",
+      "latency_ms": 0.4,
+      "answer": "Approved expenses are reimbursed in the **next payroll cycle**, and payroll runs on the **15th and the last business day** of each month. [C4] A maximum of **5 unused PTO days may be carried into the next calendar year**. [C1] Full-time employees accrue **20 days of PTO per calendar year**, credited monthly at 1.67 days per completed month of service. [C1]"
+    },
+    {
+      "qid": "Q21",
+      "type": "multi_hop",
+      "role": "manager",
+      "question": "A contractor's engagement ends next Friday and we want to keep them. What has to happen and by when?",
+      "gold_doc_ids": [
+        "HR-003"
+      ],
+      "retrieved_doc_ids": [
+        "HR-003",
+        "SEC-001"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "5 business days",
+        "12 months"
+      ],
+      "facts_found": [
+        "12 months"
+      ],
+      "key_fact_coverage": 0.5,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL missing ['5 business days']",
+      "latency_ms": 0.4,
+      "answer": "A single contractor engagement may not exceed **12 months** without a documented conversion review. [C1]"
+    },
+    {
+      "qid": "Q22",
+      "type": "multi_hop",
+      "role": "employee",
+      "question": "A customer asked us to delete their data. How long until it is actually gone, including backups?",
+      "gold_doc_ids": [
+        "SEC-002"
+      ],
+      "retrieved_doc_ids": [
+        "FIN-002",
+        "HR-003",
+        "IT-001",
+        "SEC-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "30",
+        "35"
+      ],
+      "facts_found": [
+        "30",
+        "35"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.4,
+      "answer": "Contractors **may not be granted access to Confidential or Restricted material**, including compensation data, unreleased financials, and customer PII, under any circumstances. [C3] Sev1 incidents require a customer-facing status page update within **30 minutes** of declaration and every **60 minutes** thereafter until resolution. [C2] Backups are purged on their own rolling **35-day** cycle, so a record may persist in backup for up to 35 days after live deletion. [C1]"
+    },
+    {
+      "qid": "Q23",
+      "type": "multi_hop",
+      "role": "employee",
+      "question": "It is the last week of the fiscal quarter and I need to ship a Sev2 fix to production. Is that allowed?",
+      "gold_doc_ids": [
+        "ENG-002"
+      ],
+      "retrieved_doc_ids": [
+        "ENG-001",
+        "ENG-002",
+        "IT-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "last 3 business days",
+        "VP of Engineering"
+      ],
+      "facts_found": [
+        "last 3 business days",
+        "VP of Engineering"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.4,
+      "answer": "Deployments to production are frozen: - From **December 18 through January 2** inclusive - During the **last 3 business days of each fiscal quarter** Freeze exceptions require **VP of Engineering approval** and are limited to Sev1 and Sev2 fixes. [C1] Ship one small change to production [C2] The rollback target is the last known-good revision. **Rollback must complete within 30 minutes** of a Sev1 being declared, or the incident commander switches to a forward-fix strategy and says so explicitly on the bridge. [C3]"
+    },
+    {
+      "qid": "Q24",
+      "type": "unanswerable",
+      "role": "employee",
+      "question": "What is our pet insurance benefit and how do I enrol my dog?",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "FIN-001",
+        "HR-001",
+        "HR-002",
+        "SEC-001"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": true,
+      "acl_leak_docs": [
+        "HR-002"
+      ],
+      "passed": false,
+      "verdict": "FAIL leaked",
+      "latency_ms": 0.3,
+      "answer": "I could not find this in the knowledge base."
+    },
+    {
+      "qid": "Q25",
+      "type": "unanswerable",
+      "role": "employee",
+      "question": "How much did Northwind Robotics spend on cloud infrastructure last quarter?",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "ENG-002",
+        "HR-003",
+        "SEC-001"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL answered anyway",
+      "latency_ms": 0.4,
+      "answer": "Contractors are provisioned with a `@ext.northwind-robotics.example` identity. [C4] Suspected incidents are reported to `security@northwind-robotics.example` or `#security-report` **within 1 hour** of discovery. [C2] Deployments to production are frozen: - From **December 18 through January 2** inclusive - During the **last 3 business days of each fiscal quarter** Freeze exceptions require **VP of Engineering approval** and are limited to Sev1 and Sev2 fixes. [C3]"
+    },
+    {
+      "qid": "Q26",
+      "type": "unanswerable",
+      "role": "employee",
+      "question": "Which health insurance carrier does the company use for US employees?",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "ENG-001",
+        "HR-001",
+        "HR-003",
+        "IT-001"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL answered anyway",
+      "latency_ms": 0.4,
+      "answer": "Employees receive **10 paid sick days per year**, separate from PTO. [C2] Contractors are not eligible for PTO, paid parental leave, sick leave, or the company bonus plan. [C1]"
+    },
+    {
+      "qid": "Q27",
+      "type": "unanswerable",
+      "role": "employee",
+      "question": "What is the tuition reimbursement limit per year?",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "FIN-001",
+        "HR-001",
+        "IT-001"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": false,
+      "verdict": "FAIL answered anyway",
+      "latency_ms": 0.4,
+      "answer": "Employees receive **10 paid sick days per year**, separate from PTO. [C1] Full-time employees accrue **20 days of PTO per calendar year**, credited monthly at 1.67 days per completed month of service. [C2] A maximum of **5 unused PTO days may be carried into the next calendar year**. [C2]"
+    },
+    {
+      "qid": "Q28",
+      "type": "access_control",
+      "role": "contractor",
+      "question": "What is the salary band for a Senior Software Engineer in Phoenix?",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "HR-002",
+        "IT-001",
+        "IT-002"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": false,
+      "acl_leak_docs": [
+        "HR-002"
+      ],
+      "passed": false,
+      "verdict": "FAIL leaked",
+      "latency_ms": 0.4,
+      "answer": "| Level | Title | Band minimum | Band midpoint | Band maximum | Target bonus | | ------- | ------- | -------------- | --------------- | -------------- | -------------- | | L3 | Software Engineer I | 108,000 | 122,000 | 136,000 | 8% | | L4 | Software Engineer II | 128,000 | 147,000 | 166,000 | 10% | | L5 | Senior Software Engineer | 158,000 | 177,000 | 196,000 | 15% | | L6 | Staff Software Engineer | 191,000 | 216,000 | 241,000 | 20% | [C1] Berlin bands are set at **0.82x** the Phoenix band. [C2] Employees may self-install software from the Okta app catalogue. [C4]"
+    },
+    {
+      "qid": "Q29",
+      "type": "access_control",
+      "role": "employee",
+      "question": "What is the band midpoint for an L5 engineer in Phoenix?",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "HR-001",
+        "HR-002",
+        "IT-001"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": false,
+      "acl_leak_docs": [
+        "HR-002"
+      ],
+      "passed": false,
+      "verdict": "FAIL leaked",
+      "latency_ms": 0.4,
+      "answer": "| Level | Title | Band minimum | Band midpoint | Band maximum | Target bonus | | ------- | ------- | -------------- | --------------- | -------------- | -------------- | | L3 | Software Engineer I | 108,000 | 122,000 | 136,000 | 8% | | L4 | Software Engineer II | 128,000 | 147,000 | 166,000 | 10% | | L5 | Senior Software Engineer | 158,000 | 177,000 | 196,000 | 15% | | L6 | Staff Software Engineer | 191,000 | 216,000 | 241,000 | 20% | [C1] Berlin bands are set at **0.82x** the Phoenix band. [C2]"
+    },
+    {
+      "qid": "Q30",
+      "type": "access_control",
+      "role": "contractor",
+      "question": "What geographic differential is applied to Berlin compensation bands?",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "HR-002"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": false,
+      "acl_leak_docs": [
+        "HR-002"
+      ],
+      "passed": false,
+      "verdict": "FAIL leaked",
+      "latency_ms": 0.3,
+      "answer": "Berlin bands are set at **0.82x** the Phoenix band. [C1]"
+    },
+    {
+      "qid": "Q31",
+      "type": "access_control",
+      "role": "employee",
+      "question": "Show me the FY26 compensation bands for the engineering ladder.",
+      "gold_doc_ids": [],
+      "retrieved_doc_ids": [
+        "HR-002"
+      ],
+      "retrieval_hit": null,
+      "retrieval_recall": null,
+      "key_facts": [],
+      "facts_found": [],
+      "key_fact_coverage": null,
+      "should_abstain": true,
+      "abstained": false,
+      "acl_leak_docs": [
+        "HR-002"
+      ],
+      "passed": false,
+      "verdict": "FAIL leaked",
+      "latency_ms": 0.3,
+      "answer": "Berlin bands are set at **0.82x** the Phoenix band. [C2]"
+    },
+    {
+      "qid": "Q32",
+      "type": "access_control",
+      "role": "hr",
+      "question": "What is the salary band for a Senior Software Engineer in Phoenix?",
+      "gold_doc_ids": [
+        "HR-002"
+      ],
+      "retrieved_doc_ids": [
+        "HR-002",
+        "IT-001",
+        "IT-002"
+      ],
+      "retrieval_hit": true,
+      "retrieval_recall": 1.0,
+      "key_facts": [
+        "158,000",
+        "196,000"
+      ],
+      "facts_found": [
+        "158,000",
+        "196,000"
+      ],
+      "key_fact_coverage": 1.0,
+      "should_abstain": false,
+      "abstained": false,
+      "acl_leak_docs": [],
+      "passed": true,
+      "verdict": "PASS",
+      "latency_ms": 0.4,
+      "answer": "| Level | Title | Band minimum | Band midpoint | Band maximum | Target bonus | | ------- | ------- | -------------- | --------------- | -------------- | -------------- | | L3 | Software Engineer I | 108,000 | 122,000 | 136,000 | 8% | | L4 | Software Engineer II | 128,000 | 147,000 | 166,000 | 10% | | L5 | Senior Software Engineer | 158,000 | 177,000 | 196,000 | 15% | | L6 | Staff Software Engineer | 191,000 | 216,000 | 241,000 | 20% | [C1] Berlin bands are set at **0.82x** the Phoenix band. [C2] Employees may self-install software from the Okta app catalogue. [C4]"
+    }
+  ]
+}

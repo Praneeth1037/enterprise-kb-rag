@@ -1,0 +1,1 @@
+A production database is down at 2am and the on-call DBA is not answering pages. What is the escalation path, and who has to approve emergency production database access?

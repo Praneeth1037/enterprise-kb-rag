@@ -1,0 +1,28 @@
+==============================================================================
+ENTERPRISE KNOWLEDGE BASE - BASELINE RAG
+==============================================================================
+corpus     : 11 documents -> 56 chunks (mean 272.4 chars)
+embedder   : TF-IDF 1-2 grams + TruncatedSVD -> 55-dim LSA vectors (offline, deterministic)  [55 dims]
+index build: 1.04s
+
+ROLE       : employee
+QUESTION   : Which health insurance carrier does the company use for US employees?
+
+RETRIEVED TOP-4
+------------------------------------------------------------------------------
+  [C1] +0.687  HR-003#3     HR           internal     Contractor and Contingent Worker P
+  [C2] +0.470  HR-001#1     HR           internal     Employee Handbook - Time Off and L
+  [C3] +0.296  ENG-001#0    Engineering  internal     Engineering Onboarding Guide
+  [C4] +0.291  IT-001#1     IT           internal     Production Incident Response Runbo
+
+ANSWER  (provider=extractive, 2.0 ms)
+------------------------------------------------------------------------------
+Employees receive **10 paid sick days per year**, separate from PTO. [C2] Contractors are not eligible for PTO, paid parental leave, sick leave, or the company bonus plan. [C1]
+
+CITATIONS
+------------------------------------------------------------------------------
+  HR-003#3     Contractor and Contingent Worker Policy > 4. Benefits  (internal)
+  HR-001#1     Employee Handbook - Time Off and Leave > 2. Sick Leave  (internal)
+
+full JSON written to outputs/test4.json
+==============================================================================

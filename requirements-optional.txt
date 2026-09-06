@@ -1,0 +1,4 @@
+# Optional: dense transformer embeddings for `--embedder minilm`.
+# Pulls in torch (~800 MB installed) and downloads all-MiniLM-L6-v2 (~90 MB)
+# on first use. The baseline does not need this.
+sentence-transformers>=3.0

@@ -1,0 +1,32 @@
+==============================================================================
+ENTERPRISE KNOWLEDGE BASE - BASELINE RAG
+==============================================================================
+corpus     : 11 documents -> 56 chunks (mean 272.4 chars)
+embedder   : TF-IDF 1-2 grams + TruncatedSVD -> 55-dim LSA vectors (offline, deterministic)  [55 dims]
+index build: 0.95s
+
+ROLE       : contractor
+QUESTION   : What is the salary band for a Senior Software Engineer in Phoenix?
+
+RETRIEVED TOP-4
+------------------------------------------------------------------------------
+  [C1] +0.871  HR-002#1     HR           confidential Compensation Bands FY26 (CONFIDENT  <-- ABOVE ASKER'S CLEARANCE
+  [C2] +0.321  HR-002#2     HR           confidential Compensation Bands FY26 (CONFIDENT  <-- ABOVE ASKER'S CLEARANCE
+  [C3] +0.242  IT-001#3     IT           internal     Production Incident Response Runbo
+  [C4] +0.238  IT-002#4     IT           internal     IT Onboarding, Accounts and Equipm
+
+ANSWER  (provider=extractive, 1.9 ms)
+------------------------------------------------------------------------------
+| Level | Title | Band minimum | Band midpoint | Band maximum | Target bonus | | ------- | ------- | -------------- | --------------- | -------------- | -------------- | | L3 | Software Engineer I | 108,000 | 122,000 | 136,000 | 8% | | L4 | Software Engineer II | 128,000 | 147,000 | 166,000 | 10% | | L5 | Senior Software Engineer | 158,000 | 177,000 | 196,000 | 15% | | L6 | Staff Software Engineer | 191,000 | 216,000 | 241,000 | 20% | [C1] Berlin bands are set at **0.82x** the Phoenix band. [C2] Employees may self-install software from the Okta app catalogue. [C4]
+
+CITATIONS
+------------------------------------------------------------------------------
+  HR-002#1     Compensation Bands FY26 (CONFIDENTIAL) > Engineering Ladder - Phoenix, AZ (USD, annual base)  (confidential)
+  HR-002#2     Compensation Bands FY26 (CONFIDENTIAL) > Geographic Differentials  (confidential)
+  IT-002#4     IT Onboarding, Accounts and Equipment > 5. Software Installation  (internal)
+
+!! ACCESS-CONTROL LEAK: retrieved HR-002 which a 'contractor' is not cleared to read.
+   The baseline has no ACL filter. This is a known gap, not a surprise.
+
+full JSON written to outputs/test3.json
+==============================================================================

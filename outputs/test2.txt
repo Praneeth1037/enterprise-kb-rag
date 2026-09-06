@@ -1,0 +1,28 @@
+==============================================================================
+ENTERPRISE KNOWLEDGE BASE - BASELINE RAG
+==============================================================================
+corpus     : 11 documents -> 56 chunks (mean 272.4 chars)
+embedder   : TF-IDF 1-2 grams + TruncatedSVD -> 55-dim LSA vectors (offline, deterministic)  [55 dims]
+index build: 0.92s
+
+ROLE       : employee
+QUESTION   : A production database is down at 2am and the on-call DBA is not answering pages. What is the escalation path, and who has to approve emergency production database access?
+
+RETRIEVED TOP-4
+------------------------------------------------------------------------------
+  [C1] +0.651  IT-001#1     IT           internal     Production Incident Response Runbo
+  [C2] +0.650  IT-001#2     IT           internal     Production Incident Response Runbo
+  [C3] +0.626  SEC-001#5    Security     internal     Information Security Policy
+  [C4] +0.545  SEC-001#6    Security     internal     Information Security Policy
+
+ANSWER  (provider=extractive, 2.1 ms)
+------------------------------------------------------------------------------
+If the DBA on call is unreachable after two pages, the incident commander escalates through the **Platform Engineering Manager**, who may authorise the emergency database access procedure. [C1] The DBA rotation does **not** auto-escalate. [C1] When an incident cannot be resolved without direct production database access, the break-glass procedure applies: 1. [C3]
+
+CITATIONS
+------------------------------------------------------------------------------
+  IT-001#1     Production Incident Response Runbook > 2. Paging and Escalation Chain  (internal)
+  SEC-001#5    Information Security Policy > 6. Emergency Production Access (Break-Glass)  (internal)
+
+full JSON written to outputs/test2.json
+==============================================================================

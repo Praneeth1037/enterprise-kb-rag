@@ -1,0 +1,54 @@
+============================================================================================
+BASELINE EVALUATION - Enterprise Knowledge Base RAG
+============================================================================================
+corpus   : 11 docs / 56 chunks    embedder: tfidf (55d)    top_k: 4
+questions: 32    abstain threshold: 0.25
+--------------------------------------------------------------------------------------------
+QID  TYPE            ROLE       RETR   FACTS   ABSTAIN  ACL        ms  VERDICT
+--------------------------------------------------------------------------------------------
+Q01  single_hop      employee   hit    100%    no       ok          2  PASS
+Q02  single_hop      employee   hit    50%     no       ok          1  FAIL missing ['30 days']
+Q03  single_hop      employee   hit    50%     no       ok          1  FAIL missing ['90']
+Q04  single_hop      employee   hit    0%      no       ok          1  FAIL missing ['5%', 'data loss']
+Q05  single_hop      employee   hit    100%    no       ok          1  PASS
+Q06  single_hop      employee   hit    100%    no       ok          1  PASS
+Q07  single_hop      employee   hit    100%    no       ok          1  PASS
+Q08  single_hop      employee   hit    100%    no       ok          1  PASS
+Q09  single_hop      employee   hit    100%    no       ok          1  PASS
+Q10  single_hop      employee   hit    0%      no       ok          1  FAIL missing ['December 18', 'January 2']
+Q11  single_hop      employee   hit    100%    no       LEAK        1  PASS (acl leak)
+Q12  single_hop      employee   hit    0%      yes      ok          1  FAIL false abstain
+Q13  single_hop      employee   hit    100%    no       ok          1  PASS
+Q14  single_hop      employee   hit    100%    no       LEAK        1  PASS (acl leak)
+Q15  single_hop      employee   hit    50%     no       ok          1  FAIL missing ['5']
+Q16  multi_hop       employee   hit    67%     no       ok          1  FAIL missing ['Security Duty Officer']
+Q17  multi_hop       contractor hit    50%     no       ok          1  FAIL missing ['office']
+Q18  multi_hop       employee   hit    50%     no       ok          1  FAIL missing ['forward-fix']
+Q19  multi_hop       manager    hit    67%     no       ok          1  FAIL missing ['CFO']
+Q20  multi_hop       employee   hit    0%      no       ok          1  FAIL missing ['written manager approval']
+Q21  multi_hop       manager    hit    50%     no       ok          1  FAIL missing ['5 business days']
+Q22  multi_hop       employee   hit    100%    no       ok          1  PASS
+Q23  multi_hop       employee   hit    100%    no       ok          1  PASS
+Q24  unanswerable    employee   -      -       yes      LEAK        1  FAIL leaked
+Q25  unanswerable    employee   -      -       no       ok          1  FAIL answered anyway
+Q26  unanswerable    employee   -      -       no       ok          1  FAIL answered anyway
+Q27  unanswerable    employee   -      -       no       ok          1  FAIL answered anyway
+Q28  access_control  contractor -      -       no       LEAK        1  FAIL leaked
+Q29  access_control  employee   -      -       no       LEAK        1  FAIL leaked
+Q30  access_control  contractor -      -       no       LEAK        1  FAIL leaked
+Q31  access_control  employee   -      -       no       LEAK        1  FAIL leaked
+Q32  access_control  hr         hit    100%    no       ok          1  PASS
+--------------------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------------------
+  retrieval hit@4      100.0%   (24 answerable questions)
+  retrieval recall       100.0%
+  key-fact coverage      68.1%
+  answer correct         50.0%   (12/24)
+  correct abstentions    0.0%   (0/8)
+  false abstentions      1
+  ACCESS-CONTROL LEAKS   7  <-- baseline has no ACL filter
+  overall pass rate      37.5%
+  latency p50 / p95      1 ms / 1 ms      total 0.0s
+============================================================================================
+report written to outputs/eval_report.json
